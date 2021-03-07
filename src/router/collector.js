@@ -1,4 +1,4 @@
-export default class Collector {
+class $Collector {
   constructor(){
     console.log("start Collector");
   }
@@ -7,9 +7,9 @@ export default class Collector {
     console.log(param)
   }
 
-  render(htmlText){
+  render(element){
     const APP = document.getElementById("app");
     APP.innerHTML = ""; //init
-    APP.innerHTML = htmlText;
+    APP.appendChild(element);
   }
 }

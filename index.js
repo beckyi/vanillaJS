@@ -1,6 +1,6 @@
 const APP = document.getElementById("app");
 const LIST = document.createElement("ol");
-const FUNC = ["MOMENT", "FILEPATH", "DYNAMICMEMO"];
+const FUNC = Object.keys($dictionary);
 
 FUNC.forEach((item)=>{
   const _li = document.createElement("li");
