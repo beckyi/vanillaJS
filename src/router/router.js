@@ -1,42 +1,27 @@
 //FIXME :
 (function(){
 console.log("ROUTER")
-  const dynamicFunc = (module) => {
-    const _dic = Object.keys($dictionary);
-    const collect = new $Collector();
 
-    if(_dic.includes(module)){
-      // 1. add DOM element
-      // 2. add js
-      collect.render($getDicInform(module));
-    }
-    
-  }
-  // window.addEventListener("DOMContentLoaded", (event) => {
+  window.addEventListener("DOMContentLoaded", (event) => {
   //   //HTML과 script가 로드된 시점에 발생 (before onload)
-  //   console.log("DOMContentLoaded!", event);
-  // });
+console.log("DOMContentLoaded!", event);
+  });
+  
   window.addEventListener("hashchange", (event) => {  
 console.log("hashchange!", event);
     const hash_id = event.newURL ? event.newURL.split("#") : "";
     const _module = hash_id && hash_id[1] ? hash_id[1] : "";
-    dynamicFunc(_module)
+    const _dic = Object.keys($dictionary);
+    const collect = new $Collector();
 
-return;
-    const script_area = document.getElementById("ADD_SCRIPT");
-    script_area.innerHTML = ""; //init
-    
-    if(_module){
-      const _script = document.createElement("script");
-
-      _script.setAttribute("type", "text/javascript");
-      _script.setAttribute("src", `./src/components/${_module}/index.js`);
-      _script.setAttribute("async", "");
-      // _script.setAttribute("crossorigin", "anonymous");
-  
-      script_area.appendChild(_script); //add js
+    if(_dic.includes(_module)){
+      // 1. add DOM element
+      collect.render($getElement(_module));
+      // 2. add js
+      collect.setScript(_module);
     } else {
-
+      collect.initDom();    //init (module list)
+      collect.setScript();  //clear js file
     }
 
     // chrome or IE (https://codediver.tistory.com/33 [코드 다이버])
@@ -47,12 +32,7 @@ return;
     // _script.onload = function() {}
     // }
     // return renderHTML(el, getHashRoute())
-  })
-  console.log("ROUTER2")
-  
-
-  // const temp = new Router();
-  // console.log(temp, temp.setScript("TEST"));
+  });
 })();
 
 
