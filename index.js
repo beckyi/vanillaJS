@@ -1,18 +1,3 @@
-const APP = document.getElementById("app");
-const LIST = document.createElement("ol");
-const FUNC = Object.keys($dictionary);
+const collect = new $Collector;
 
-FUNC.forEach((item)=>{
-  const _li = document.createElement("li");
-  _li.innerText = item;
-  LIST.appendChild(_li);
-});
-
-LIST.addEventListener("click", (event)=>{
-console.log("CLICK",event);
-  event.stopPropagation();
-  const hash_id = event.target.innerText;
-  window.location.hash = `#${hash_id}`;
-});
-
-APP.appendChild(LIST);
+collect.initDom();    //초기 - 모듈 리스트
