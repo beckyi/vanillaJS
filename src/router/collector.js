@@ -5,9 +5,12 @@ class $Collector {
   }
 
   initDom (){
+    const element = document.createElement("div");
+    const IMG = document.createElement("img");
     const LIST = document.createElement("ol");
     const FUNC = Object.keys($dictionary);
-
+    IMG.src = "src/assets/vanilla.png";
+    
     FUNC.forEach((item)=>{
       const _li = document.createElement("li");
       _li.innerText = item;
@@ -21,7 +24,10 @@ console.log("CLICK",event);
       window.location.hash = `#${hash_id}`;
     });
 
-    this.render(LIST);
+    element.appendChild(LIST);
+    element.appendChild(IMG);
+
+    this.render(element);
   }
 
   //add child element
