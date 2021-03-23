@@ -18,5 +18,6 @@
   "bugs": {
     "url": "https://github.com/beckyi/vanillaJS/issues"
   },
-  "homepage": "https://github.com/beckyi/vanillaJS#readme"
+  "homepage": "https://github.com/beckyi/vanillaJS#readme",
+  "type": "module"
 }

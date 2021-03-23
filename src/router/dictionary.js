@@ -34,6 +34,7 @@ const $getElement = (module) => {
   element.id = `${module.toLowerCase()}_Wrapper`;
   element.classList.add("wrapper");
   element.innerHTML = $IHTML[module];
+  // DOMNodeInserted와 DOMNodeInsertedIntoDocument
 
   return element;
 }
